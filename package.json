@@ -4,7 +4,7 @@
   "description": "",
   "main": "simple_server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "serve": "nodemon"
   },
   "author": "",
