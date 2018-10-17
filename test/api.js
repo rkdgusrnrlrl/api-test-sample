@@ -2,12 +2,15 @@ const expect = require('chai').expect
 const rq = require('request-promise-native')
 
 describe('API 서버 테스트', () => {
-    it('hello 를 콜하면 world 값을 리턴', async () => {
-        const {hello} = await rq({
-            url :'http://localhost:3000/hello',
+    const BASE_URL = 'http://localhost:3000/';
+
+    it('서버 `/` 접속 테스트', async () => {
+        const hello = await rq({
+            url : BASE_URL,
             method : 'GET',
-            json : true
+            json : true,
+            resolveWithFullResponse : true
         })
-        expect(hello).to.equal("world")
+        expect(hello.statusCode).to.equal(200)
     }).timeout(200)
 })
